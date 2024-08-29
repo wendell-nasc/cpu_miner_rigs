@@ -1,0 +1,6 @@
+[Unit]
+Description=Verifica alterações no repositório Git
+
+[Service]
+Type=simple
+ExecStart=/home/wendell/hook/xmrig/start_final_git.sh

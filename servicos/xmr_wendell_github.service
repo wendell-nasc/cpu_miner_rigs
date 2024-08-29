@@ -1,0 +1,21 @@
+#sudo cp /home/wendell/hook/servicos/xmr_wendell_github.service /etc/systemd/system/xmr_wendell_github.service
+#sudo systemctl daemon-reload
+#sudo systemctl enable xmr_wendell_github.service
+#sudo systemctl start xmr_wendell_github.service
+#sudo systemctl status xmr_wendell_github.service
+#sudo journalctl -f -u xmr_wendell_github.service
+
+[Unit]
+Description=XMR - Serviço XMR Automatizado - Verifica github
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/bin/bash /home/wendell/hook/xmrig/start_final_git.sh
+
+[Install]
+WantedBy=multi-user.target

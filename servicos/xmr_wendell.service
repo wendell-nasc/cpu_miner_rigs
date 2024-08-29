@@ -1,0 +1,23 @@
+#sudo cp /etc/systemd/system/xmr_wendell.service /home/wendell/hook/servicos/xmr_wendell.service
+#/etc/systemd/system/xmr_wendell.service
+#sudo nano /etc/systemd/system/xmr_wendell.service - Colar conteudo
+#sudo systemctl start xmr_wendell
+#sudo systemctl restart xmr_wendell
+#sudo systemctl enable xmr_wendell
+#sudo systemctl status xmr_wendell
+#sudo journalctl -f -u xmr_wendell.service
+
+[Unit]
+Description=XMR - Serviço XMR Automatizado
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/home/wendell/hook/xmrig/start_miner.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Executa o serviço de verificação de Git periodicamente
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=2min
+Unit=git-check.service
+
+[Install]
+WantedBy=timers.target
+
