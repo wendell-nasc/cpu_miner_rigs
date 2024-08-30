@@ -1,3 +1,10 @@
+#sudo cp /home/wendell/hook/servicos/git-check.service /etc/systemd/system/git-check.timer
+#sudo systemctl daemon-reload
+#sudo systemctl enable git-check.timer
+#sudo systemctl start git-check.timer
+#sudo systemctl status git-check.timer
+#sudo journalctl -f -u git-check.timer
+
 [Unit]
 Description=Executa o serviço de verificação de Git periodicamente
 

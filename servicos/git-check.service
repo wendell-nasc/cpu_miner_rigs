@@ -1,6 +1,13 @@
+#sudo cp /home/wendell/hook/servicos/git-check.service /etc/systemd/system/git-check.service
+#sudo systemctl daemon-reload
+#sudo systemctl enable git-check.service
+#sudo systemctl start git-check.service
+#sudo systemctl status git-check.service
+#sudo journalctl -f -u git-check.service
+
 [Unit]
 Description=Verifica alterações no repositório Git
 
 [Service]
 Type=simple
-ExecStart=/home/wendell/hook/xmrig/start_final_git.sh
+ExecStart=/bin/bash /home/wendell/hook/xmrig/start_final_git.sh
