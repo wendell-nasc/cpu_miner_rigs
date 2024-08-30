@@ -37,7 +37,6 @@ if [ "$REMOTE_HASH" != "$LOCAL_HASH" ]; then
     /home/wendell/hook/xmrig/start_final.sh
 else
     echo "Nenhuma alteração detectada no repositório remoto."
-    for pid in $(pgrep xmrig); do sudo kill $pid; done
     # Executa o script de atualização
     /home/wendell/hook/xmrig/start_final.sh
     
