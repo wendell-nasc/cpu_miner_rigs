@@ -1,7 +1,35 @@
+
+
+# usuario root
+sudo adduser wendell
+usermod -aG sudo wendell
+
+# alterar senha do root
+sudo -i
+passwd
+ou
+sudo passwd wendell
+sudo passwd root
+
+
+
+
+# Modem NOKIA - 
+nokia g-1425g-a
+User: AdminGPON
+Password: ALC#FGU
+
+
+
 #hive
 passwd
 cd /hive-config
 rm -r rig.conf
+
+# Instalação Inicial
+sudo mkdir -p /opt/xmrig
+sudo chmod -R 777 /opt/xmrig
+ 
 
 
 
@@ -21,9 +49,30 @@ sudo apt install -y git build-essential cmake libuv1-dev libssl-dev libhwloc-dev
 lsb_release -a
 wget https://repo.zabbix.com/zabbix/6.2/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.2-2%2Bubuntu22.04_all.deb
 dpkg -i zabbix-release_6.2-2+ubuntu22.04_all.deb
-sudo apt update
-sudo apt-get install zabbix-agent
 
+wget http://repo.zabbix.com/zabbix/3.0/debian/pool/main/z/zabbix-release/zabbix-release_3.0-2+stretch_all.deb
+dpkg -i zabbix-release_3.0-2+stretch_all.deb
+apt-get update
+
+sudo apt update
+sudo apt upgrade
+
+sudo nano /etc/zabbix/zabbix_agentd.conf
+Server=n
+
+ServerActive=127.0.0.1
+Hostname=192.168.1.130
+Hostname=Rig03
+
+sudo apt-get install zabbix-agent
+sudo systemctl enable zabbix-agent 
+sudo systemctl restart zabbix-agent 
+sudo systemctl status zabbix-agent
+
+sudo journalctl -f -u zabbix-agent
+sudo mkdir /var/log/zabbix-agent
+sudo mkdir /var/log/zabbix-agent/zabbix_agentd.log
+sudo chmod -R 777 /var/log/zabbix-agent
 
 -
 -zabbix acesso
@@ -56,9 +105,16 @@ sudo service nginx stop
 sudo rm /etc/nginx/sites-enabled/default
 sudo tail -n 50 /var/log/nginx/error.log
 
--apache erro
+-apache 
+sudo systemctl status apache2
+sudo systemctl enable apache2
+sudo systemctl restart apache2
 sudo mkdir -p /var/log/apache2/
-sudo chmod -R 744 /var/log/apache2/
+sudo chmod -R 777 /var/log/apache2/
+
+sudo /var/log/apache2/
+sudo mkdir -p /opt/xmrig
+sudo chmod -R 777
 
 sudo chmod -R 744 /var/log/zabbix/zabbix_server.log
 sudo chmod -R 744 /var/log/zabbix/zabbix_server.log
@@ -91,24 +147,6 @@ mysql -u root -p -e "SHOW VARIABLES LIKE 'port';"
 
 
 
--agent
-sudo apt install zabbix-agent
- systemctl status zabbix-agent
-
-sudo systemctl start zabbix-agent 
-sudo systemctl enable zabbix-agent 
-
-
-# usuario root
-sudo adduser wendell
-usermod -aG sudo wendell
-
-# alterar senha do root
-sudo -i
-passwd
-ou
-sudo passwd wendell
-sudo passwd root
 
 
 # open SSH
