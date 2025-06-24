@@ -1,0 +1,25 @@
+{
+    "autosave": true,
+    "cpu": true,
+    "opencl": false,
+    "cuda": false,
+    "pools": [
+      {
+        "algo": "rx/xdag",
+        "coin": null,
+        "url": "stratum.xdag.org:23655",
+        "user": "Cfb8Bmv52q92vvrUCk5i76xfavia9vL3z.android",
+        "pass": "MyMinerName",
+        "rig-id": "android",
+        "nicehash": false,
+        "keepalive": false,
+        "enabled": true,
+        "tls": false,
+        "tls-fingerprint": null,
+        "daemon": false,
+        "socks5": null,
+        "self-select": null,
+        "submit-to-origin": false
+    }
+    ]
+}

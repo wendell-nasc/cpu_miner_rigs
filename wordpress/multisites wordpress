@@ -1,0 +1,405 @@
+
+
+
+http://192.168.15.161/site1/wp-login.php?loggedout=true&wp_lang=pt_BR
+
+Site 1
+http://200.148.4.181:9000/site1/wp-login.php
+
+login:
+Site 1
+duda1234
+
+
+
+
+
+
+ngrok
+
+sudo apt install ngrok 
+ou
+snap install ngrok
+
+sudo ngrok authtoken 2mIaKOCrSltRqsCBGVCfbmdC3CK_3Rt9bg4vo1BVBvFVYfUnN
+
+Authtoken saved to configuration file: /home/wendell/snap/ngrok/189/.config/ngrok/ngrok.yml
+
+Expor seu servidor local na porta 80 ou 443 com o Ngrok:
+sudo ngrok http  200.148.4.181:9000/
+
+
+
+
+https://ngrok.com/docs/agent/ingress/?cty=agent-cli
+
+
+
+
+
+
+# Gerar chaves
+https://api.wordpress.org/secret-key/1.1/salt/
+
+sudo nano /var/www/site1.com/public_html/wp-config.php
+sudo nano /var/www/site2.com/public_html/wp-config.php
+sudo nano /var/www/site3.com/public_html/wp-config.php
+
+# Vamos fazer a configuração de três sites em WordPress (site1, site2, e site3) em um servidor Ubuntu com Apache e MySQL. Este guia mostrará como configurar o Apache para servir múltiplos sites usando alias, instalar o WordPress, e configurar o MySQL para cada site.
+
+1. Pré-requisitos
+Antes de começar, certifique-se de ter o seguinte:
+
+Um servidor Ubuntu (local ou remoto).
+Apache instalado.
+MySQL/MariaDB instalado.
+PHP instalado.
+Execute o seguinte comando para garantir que todos os pacotes necessários estão instalados:
+
+bash
+Copiar código
+sudo apt update
+sudo apt install apache2 mysql-server php libapache2-mod-php php-mysql php-curl php-gd php-xml php-mbstring php-zip
+2. Configurar Apache para suportar múltiplos sites
+Você precisará configurar o Apache para servir vários sites com Alias ou como Virtual Hosts. Vamos usar Alias neste exemplo para os três sites.
+
+a) Criar diretórios para os sites
+Crie os diretórios onde o conteúdo do WordPress para os três sites será armazenado:
+
+bash
+Copiar código
+sudo mkdir -p /var/www/site1.com/public_html
+sudo mkdir -p /var/www/site2.com/public_html
+sudo mkdir -p /var/www/site3.com/public_html
+Atribua as permissões corretas:
+
+bash
+Copiar código
+sudo chown -R www-data:www-data /var/www/site1.com/public_html
+sudo chown -R www-data:www-data /var/www/site2.com/public_html
+sudo chown -R www-data:www-data /var/www/site3.com/public_html
+sudo chmod -R 755 /var/www
+b) Configurar os aliases no Apache
+Agora, crie um arquivo de configuração no Apache para definir as regras de alias para cada site. Crie um novo arquivo de configuração no diretório sites-available:
+
+bash
+Copiar código
+sudo nano /etc/apache2/sites-available/multi-sites.conf
+Adicione o seguinte conteúdo para definir os aliases:
+
+apache
+Copiar código
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    
+    # Alias for site1
+    Alias /site1 /var/www/site1.com/public_html
+    <Directory /var/www/site1.com/public_html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    
+    # Alias for site2
+    Alias /site2 /var/www/site2.com/public_html
+    <Directory /var/www/site2.com/public_html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    
+    # Alias for site3
+    Alias /site3 /var/www/site3.com/public_html
+    <Directory /var/www/site3.com/public_html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+    
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+Salve e feche o arquivo. Em seguida, ative essa configuração e reinicie o Apache:
+
+bash
+Copiar código
+sudo a2ensite multi-sites.conf
+sudo systemctl restart apache2
+3. Configurar bancos de dados MySQL para cada site
+Agora, precisamos criar um banco de dados MySQL para cada site:
+
+Acesse o MySQL:
+bash
+Copiar código
+sudo mysql
+Para site1, crie um banco de dados, um usuário e atribua as permissões:
+sql
+Copiar código
+CREATE DATABASE site1_db;
+CREATE USER 'site1_user'@'localhost' IDENTIFIED BY 'senha_segura1';
+GRANT ALL PRIVILEGES ON site1_db.* TO 'site1_user'@'localhost';
+FLUSH PRIVILEGES;
+Repita esse processo para site2 e site3, criando novos bancos de dados e usuários:
+
+sql
+Copiar código
+CREATE DATABASE site2_db;
+CREATE USER 'site2_user'@'localhost' IDENTIFIED BY 'senha_segura2';
+GRANT ALL PRIVILEGES ON site2_db.* TO 'site2_user'@'localhost';
+FLUSH PRIVILEGES;
+
+CREATE DATABASE site3_db;
+CREATE USER 'site3_user'@'localhost' IDENTIFIED BY 'senha_segura3';
+GRANT ALL PRIVILEGES ON site3_db.* TO 'site3_user'@'localhost';
+FLUSH PRIVILEGES;
+
+EXIT;
+4. Baixar e configurar o WordPress para cada site
+Agora, baixe o WordPress para cada site:
+
+bash
+Copiar código
+cd /tmp
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+Copie o WordPress para o diretório de cada site:
+
+bash
+Copiar código
+sudo cp -r wordpress/* /var/www/site1.com/public_html/
+sudo cp -r wordpress/* /var/www/site2.com/public_html/
+sudo cp -r wordpress/* /var/www/site3.com/public_html/
+Defina as permissões corretas:
+
+bash
+Copiar código
+sudo chown -R www-data:www-data /var/www/site1.com/public_html
+sudo chown -R www-data:www-data /var/www/site2.com/public_html
+sudo chown -R www-data:www-data /var/www/site3.com/public_html
+sudo chmod -R 755 /var/www
+5. Configurar o wp-config.php para cada site
+Agora, configure o arquivo wp-config.php para cada site.
+
+Copie o arquivo de configuração padrão:
+bash
+Copiar código
+sudo cp /var/www/site1.com/public_html/wp-config-sample.php /var/www/site1.com/public_html/wp-config.php
+sudo cp /var/www/site2.com/public_html/wp-config-sample.php /var/www/site2.com/public_html/wp-config.php
+sudo cp /var/www/site3.com/public_html/wp-config-sample.php /var/www/site3.com/public_html/wp-config.php
+Edite o arquivo wp-config.php para cada site:
+bash
+Copiar código
+
+sudo nano /var/www/site1.com/public_html/wp-config.php
+sudo nano /var/www/site2.com/public_html/wp-config.php
+sudo nano /var/www/site3.com/public_html/wp-config.php
+
+Atualize as seguintes linhas para conectar ao banco de dados correto de cada site:
+
+Para site1:
+
+php
+Copiar código
+define( 'DB_NAME', 'site1_db' );
+define( 'DB_USER', 'site1_user' );
+define( 'DB_PASSWORD', 'senha_segura1' );
+define( 'DB_HOST', 'localhost' );
+
+Repita esse processo para site2 e site3, usando os nomes de banco de dados e senhas corretas.
+
+6. Finalizar a instalação do WordPress via navegador
+Agora você pode acessar os sites no navegador para concluir a instalação do WordPress:
+
+Para o site1: http://192.168.15.161/site1
+Para o site2: http://192.168.15.161/site2
+Para o site3: http://192.168.15.161/site3
+Basta seguir o assistente de instalação do WordPress e preencher as informações do site.
+
+7. Testar e verificar configurações
+Se tudo estiver configurado corretamente, você verá a página de instalação do WordPress. Se houver algum erro, verifique os logs do Apache para encontrar possíveis problemas:
+
+bash
+Copiar código
+sudo tail -f /var/log/apache2/error.log
+Essa configuração deve permitir que os três sites funcionem corretamente no mesmo servidor.
+
+
+
+
+
+
+
+
+
+### acessos simultaneos
+O log indica que o Apache está atingindo o limite máximo de trabalhadores (MaxRequestWorkers), o que pode estar causando problemas de desempenho e recusas de conexão.
+
+Para resolver isso:
+
+Aumente o limite de MaxRequestWorkers:
+
+Edite o arquivo de configuração principal do Apache para ajustar o número máximo de trabalhadores.
+Abra o arquivo de configuração:
+bash
+Copiar código
+sudo nano /etc/apache2/mods-available/mpm_prefork.conf
+Encontre a linha MaxRequestWorkers e aumente o valor (por exemplo, de 150 para 256):
+Copiar código
+MaxRequestWorkers 256
+Salve o arquivo e reinicie o Apache:
+bash
+Copiar código
+sudo systemctl restart apache2
+Verifique se há processos pendentes:
+
+Use o comando abaixo para ver o uso de recursos e verificar se há sobrecarga:
+bash
+Copiar código
+sudo apachectl status
+Acompanhe os logs:
+
+Continue monitorando os logs com o comando tail -f para verificar se o erro persiste após o ajuste.
+Teste o acesso novamente:
+
+Acesse o link do ngrok novamente para garantir que o problema tenha sido resolvido.
+Essas mudanças devem permitir que o Apache gerencie mais conexões simultâneas sem atingir o limite de trabalhadores.
+
+
+
+
+# proxy reverso
+
+Para configurar o Apache para redirecionar chamadas recebidas na porta 9000 para o site1, você precisará criar uma nova configuração de VirtualHost para a porta 9000 e definir um ProxyPass. Aqui está o passo a passo para fazer isso:
+
+1. Habilitar o Módulo de Proxy do Apache
+Certifique-se de que os módulos necessários para proxy e redirecionamento estão habilitados:
+
+bash
+Copiar código
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+Depois de habilitar os módulos, reinicie o Apache para aplicar as mudanças:
+
+bash
+Copiar código
+sudo systemctl restart apache2
+2. Criar um Novo Arquivo de Configuração para a Porta 9000
+Crie um novo arquivo de configuração para o VirtualHost na porta 9000:
+
+bash
+Copiar código
+sudo nano /etc/apache2/sites-available/site1-port9000.conf
+Adicione a configuração a seguir no arquivo:
+
+apache
+
+Corrigido !!!!!!!!!!!!!!
+
+
+<VirtualHost *:9000>
+    ServerAdmin webmaster@localhost
+    ServerName 200.148.4.181
+    DocumentRoot /var/www/site1.com/public_html
+
+    <Directory /var/www/site1.com/public_html>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+
+    # Proxy reverse configuration
+    ProxyPreserveHost On
+    ProxyPass /site1 http://localhost/site1
+    ProxyPassReverse /site1 http://localhost/site1
+
+    ErrorLog ${APACHE_LOG_DIR}/site1-error.log
+    CustomLog ${APACHE_LOG_DIR}/site1-access.log combined
+</VirtualHost>
+
+
+
+
+Notas:
+
+DocumentRoot: Define o diretório onde está o conteúdo do site. No seu caso, /var/www/site1.com/public_html é o diretório onde o site1 está localizado.
+ProxyPass e ProxyPassReverse: Redirecionam as requisições feitas para /site1 na porta 9000 para o mesmo caminho na porta 9000, permitindo que você acesse o site1 usando http://192.168.15.161:9000/site1/.
+Salve e feche o arquivo (Ctrl+X, depois Y, e Enter).
+
+3. Habilitar o Novo VirtualHost
+Habilite a nova configuração com o comando:
+
+bash
+Copiar código
+sudo a2ensite site1-port9000.conf
+4. Reiniciar o Apache
+Reinicie o Apache para aplicar a nova configuração:
+
+bash
+Copiar código
+sudo systemctl restart apache2
+5. Testar a Configuração
+Acesse o site usando o endereço:
+
+arduino
+Copiar código
+http://192.168.15.161:9000/site1/
+Verifique os logs do Apache se encontrar problemas. Eles estão localizados em:
+
+bash
+Copiar código
+sudo tail -f /var/log/apache2/site1-error.log
+sudo tail -f /var/log/apache2/site1-access.log
+Resumo
+Você configurou o Apache para escutar na porta 9000 e redirecionar as requisições para o diretório do site1. Com isso, qualquer acesso a http://192.168.15.161:9000/site1/ será direcionado corretamente para o site1.
+
+Se encontrar algum problema ou precisar de mais ajustes, estou aqui para ajudar!
+
+
+
+
+
+
+Você disse:
+Não funcionouA conexão com 192.168.15.161 foi recusada.
+O ChatGPT disse:
+ChatGPT
+Se a conexão com 192.168.15.161:9000 foi recusada, isso pode indicar que o Apache não está escutando na porta 9000 ou que algo está impedindo o tráfego na porta 9000. Vamos resolver isso passo a passo:
+
+1. Verifique se o Apache Está Escutando na Porta 9000
+Abra o arquivo de configuração de portas do Apache para verificar se a porta 9000 está configurada:
+
+bash
+Copiar código
+sudo nano /etc/apache2/ports.conf
+Adicione a configuração para escutar na porta 9000, se não estiver presente:
+
+apache
+Copiar código
+Listen 9000
+Salve e feche o arquivo (Ctrl+X, depois Y, e Enter).
+
+Reinicie o Apache para aplicar as mudanças:
+
+bash
+Copiar código
+sudo systemctl restart apache2
+2. Verifique a Configuração do Firewall
+O firewall pode estar bloqueando a porta 9000. Verifique e ajuste as regras do firewall, se necessário.
+
+Verifique o status do firewall:
+
+bash
+Copiar código
+sudo ufw status
+Permita o tráfego na porta 9000:
+
+bash
+Copiar código
+sudo ufw allow 9000/tcp
+Recarregue o firewall para aplicar as mudanças:
+
+bash
+Copiar código
+sudo ufw reload

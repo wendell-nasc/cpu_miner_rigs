@@ -1,0 +1,50 @@
+"cpu": {
+    "enabled": true,
+    "huge-pages": true,     // Ativa páginas enormes (recomenda-se ativá-las para melhorar a performance)
+    "hw-aes": null,         // Usar AES-NI se disponível
+    "priority": null,       // Prioridade do processo
+    "asm": true,            // Otimização ASM
+    "argon2-impl": null,
+    "argon2": [1, 2],
+    "cn": [0, 1],
+    "randomx": [1, 2],
+    "rx": [0, 2],
+    "cn-heavy": [1, 1],
+    "rx/arq": [0, 2],
+    "rx/gpu": false,
+    "rx/wow": [1, 2],
+    "cn-lite": [0, 2],
+    "cn-pico": [0, 2],
+    "rx-sfx": false,
+    "cn/0": [0, 1],
+    "cn/1": [0, 2],
+    "rx/xmr": [1, 2],
+
+    "hw-aes": null,
+    "priority": null,
+    "memory-pool": true,
+    "max-threads-hint": 100, 
+    "asm": true,
+    "argon2-impl": null,
+    "astrobwt-max-size": 550, 
+    "astrobwt-avx2": false, 
+    "cn/0": false, 
+    "cn-lite/0": false 
+
+},
+"randomx": {
+    "init": -1,
+    "init-avx2": -1,
+    "init-avx512": -1,
+    "mode": "auto",
+    "1gb-pages": true,
+    "rdmsr": true,
+    "wrmsr": true,
+    "cache_qos": false,
+    "numa": true,            // Otimizar para sistemas NUMA (recomendado para servidores)
+    "jit": true,
+    "secure-jit": false,
+    "init-mem": true,
+    "init-algo": "auto",
+    "huge-pages": true       // Usa huge pages no RandomX
+}

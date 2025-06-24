@@ -1,0 +1,32 @@
+{
+    "autosave": true,
+    "donate-level": 1,  // Nível de doação definido como 1%
+    "cpu": {
+        "enabled": true,
+        "huge-pages": true,
+        "hw-aes": true,
+        "priority": 5,
+        "memory-pool": true,
+        "max-threads-hint": 100,
+        "asm": true,
+        "argon2-impl": null,
+        "astrobwt-max-size": 550,
+        "astrobwt-avx2": true,
+        "cn/0": false,
+        "cn-lite/0": false,
+        "1gb-pages": true
+    },
+    "pools": [
+        {
+            "coin": null,
+            "url": "randomx.rplant.xyz:7020",
+            "algo": "randomx",
+            "user": "amyKgyh7fnCXbfugdhpoQ7AGeQKTGc3bDQRU5h63cq6SVTzHP8or5GPbYzaVoP2AQi2Ngdx8KHutfV2K1sRJTrQg9jaVSZkfPy.android",
+            "pass": "x",                        
+            "nicehash": false,
+            "tls": false
+        }
+    ]
+}
+
+

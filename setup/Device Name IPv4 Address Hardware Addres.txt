@@ -1,0 +1,27 @@
+	Device Name	IPv4 Address	Hardware Address	IP Address Allocation	Lease Remaining	Last Active Time	Delete
+Active	Ethernet	Unknown_00:0b:0e:0f:00:ed	192.168.1.68	00:0b:0e:0f:00:ed	Static	-	31/12/1969 07:01:55 PM	
+Active	Ethernet	Unknown_90:2b:34:f0:5a:3b	192.168.1.65	90:2b:34:f0:5a:3b	Static	-	31/12/1969 07:01:55 PM	
+Active	Ethernet	Unknown_58:d9:d5:a6:b3:40	192.168.1.66	58:d9:d5:a6:b3:40	Static	-	31/12/1969 07:01:56 PM	
+Active	Ethernet	Unknown_c8:60:00:c6:02:16	192.168.1.64	c8:60:00:c6:02:16	Static	-	31/12/1969 07:01:56 PM	
+Active	Wireless (2.4GHz)	rig160-asus-xeon5450	192.168.1.78	9c:b7:0d:f4:a5:3f	DHCP	20 hours 40 min 14 sec 	31/12/1969 07:01:56 PM	
+Active	Ethernet	Unknown_90:2b:34:f4:86:eb	192.168.1.166	90:2b:34:f4:86:eb	Static	-	31/12/1969 07:01:56 PM	
+Active	Ethernet	Unknown_00:10:b5:76:5a:54	192.168.1.165	00:10:b5:76:5a:54	Static	-	31/12/1969 07:01:56 PM	
+Active	Ethernet	Unknown_74:86:7a:fb:bd:1d	192.168.1.163	74:86:7a:fb:bd:1d	Static	-	31/12/1969 07:01:57 PM	
+Active	Ethernet	Unknown_38:60:77:ad:9b:c5	192.168.1.160	38:60:77:ad:9b:c5	Static	-	31/12/1969 07:01:57 PM	
+Active	Ethernet	Unknown_d0:27:88:d8:6e:ef	192.168.1.162	d0:27:88:d8:6e:ef	Static	-	31/12/1969 07:01:57 PM	
+Active	Ethernet	Unknown_22:04:e1:23:02:3b	192.168.1.151	22:04:e1:23:02:3b	Static	-	31/12/1969 07:01:57 PM	
+Active	Ethernet	Unknown_c8:9c:dc:cf:5f:d9	192.168.1.158	c8:9c:dc:cf:5f:d9	Static	-	31/12/1969 07:01:58 PM	
+Active	Ethernet	Unknown_90:2b:34:f7:ad:63	192.168.1.159	90:2b:34:f7:ad:63	Static	-	31/12/1969 07:01:59 PM	
+Active	Ethernet	Unknown_00:e0:4c:68:27:85	192.168.1.157	00:e0:4c:68:27:85	Static	-	31/12/1969 07:01:59 PM	
+Active	Ethernet	Unknown_00:e0:4c:d2:55:e3	192.168.1.156	00:e0:4c:d2:55:e3	Static	-	31/12/1969 07:01:59 PM	
+Active	Ethernet	Unknown_d0:27:88:5d:a7:4e	192.168.1.155	d0:27:88:5d:a7:4e	Static	-	31/12/1969 07:02:00 PM	
+Active	Ethernet	Unknown_90:2b:34:f7:de:f5	192.168.1.152	90:2b:34:f7:de:f5	Static	-	31/12/1969 07:02:00 PM	
+Active	Ethernet	Unknown_74:d0:2b:4f:ef:12	192.168.1.154	74:d0:2b:4f:ef:12	Static	-	31/12/1969 07:02:05 PM	
+Active	Ethernet	Unknown_22:08:e1:25:06:31	192.168.1.153	22:08:e1:25:06:31	Static	-	31/12/1969 07:02:06 PM	
+Active	Ethernet	Unknown_78:2b:cb:c3:da:be	192.168.1.150	78:2b:cb:c3:da:be	Static	-	31/12/1969 07:02:06 PM	
+Active	Ethernet	Unknown_04:92:26:c2:e1:c9	192.168.1.148	04:92:26:c2:e1:c9	Static	-	31/12/1969 07:02:08 PM	
+Inactive	Wireless (2.4GHz)	Unknown_72:d7:62:35:8c:81	192.168.1.67	72:d7:62:35:8c:81	DHCP	22 hours 34 min 53 sec 	31/12/1969 09:06:56 PM	
+Inactive	Wireless (5GHz)	Unknown_86:5f:18:f8:0f:21	192.168.1.71	86:5f:18:f8:0f:21	DHCP	21 hours 16 min 47 sec 	31/12/1969 07:40:00 PM	
+Active	Ethernet	mini-e3_1225v2	192.168.1.69	00:e0:7d:d5:c7:02	DHCP	21 hours 39 min 19 sec 	31/12/1969 08:00:28 PM	
+Active	Wireless (5GHz)	DESKTOP-3P50CP4	192.168.1.72	c4:d9:87:e5:93:2c	DHCP	23 hours 57 min 0 sec 	31/12/1969 08:05:08 PM	
+Active	Ethernet	Unknown_00:1f:c6:9d:5a:4a	192.168.1.164	00:1f:c6:9d:5a:4a	Static	-	31/12/1969 10:2

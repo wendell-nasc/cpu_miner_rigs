@@ -1,36 +1,165 @@
-#bloco de configuração da rede
+
+sudo systemctl stop deroluna.service
+sudo systemctl daemon-reload 
+sudo systemctl start deroluna.service
+sudo systemctl stop deroluna.service
+
+sudo journalctl -f -u deroluna.service
+
+sudo tail -f /var/log/start-deroluna.log
+sudo journalctl -f -u deroluna.service
+
+dero errado
+148
+151
+154
+158
+162
+
+
+192.168.1.130 - rig130-asus-e3_1270 - ok
+192.168.1.148 - rig148-asus-fx8201 - ok
+192.168.1.150 - rig150-dell-i5-2400 - OK
+192.168.1.151 - rig151-mini-e3_1220 - ok
+192.168.1.152 - rig152-pcware1-i5-3570 - ok
+192.168.1.153 - rig153-mini02-e3_1220v2 -  ..... PENDENTE
+192.168.1.154 - rig154-asus-fx8320 - ok
+192.168.1.155 - rig155-lenovo-i5_2500 - ok
+192.168.1.156 - rig156-zillion-i5_2400 - ok
+192.168.1.157 - rig157-giga-e3_1240  - ok
+192.168.1.158 - rig158-qbex-i7_3770 - ok
+192.168.1.159 - rig159-giga-fx6300 - ok -mudou .. ..... PENDENTE
+192.168.1.160 - rig160-pegatron1-i5_2400 -  ok
+192.168.1.162 - rig162-foxkon-i7_2700 - ok
+192.168.1.163 - rig163-dell-i5_3770 - ok
+192.168.1.164 - rig164-megatron-i5_2310 - ok
+192.168.1.165 e 166 - rig165-asrock-fx6300 -
+192.168.1.167 - rig167-note-samsung_amd - 
+192.168.1.168 - rig168-asus-i5_3470
+192.168.1.67 - rig67-asus-i5_-3330 - ok
+192.168.1.68 - rig68-mini-i7_3570 - nao
+192.168.1.69 - rig HIVE OS - ok ....... PENDENTE
+192.168.1.70 - rig170-asus-i5-3570s - OK
+192.168.1.72 - rig72-asus-E3_1220_V2 - OK
+192.168.1.81 - rig81-pcware-i5_2400 - ok- ..... PENDENTE
+192.168.1.84 - rig84-i5 mobile - PENDETE  ..... OK
+192.168.1.88 - rig88-i5 mobile  ..... PENDENTE
+192.168.1.180 - rig80-pcare-i5-2400 -ok
+192.168.1.181 - rig181-asus-x5450
+192.168.1.182- rig182-asrock-phenom
+-
+
+
+- 
+
+
+
+
+- 
+
+ 
+
+delisgados 23/10
+153
+166
+167
+
+atualizar script 23/10
+160
+
+
+
+
+
+
+sudo nano /etc/systemd/system/start-xmrig.sh
+sudo systemctl daemon-reload
+sudo systemctl enable xmrig.service
+
+sudo systemctl disable deroluna.service && sudo systemctl stop deroluna.service
+sudo systemctl disable xmrig.service && sudo systemctl stop xmrig.service
+
+sudo systemctl stop xmrig.service
+
+sudo nano /etc/hostname
+
+sudo apt install netplan
+sudo nano /etc/default/netplan
+ENABLED=1
+
+sudo nano /etc/plan/netplan-acl
+allow 192.168.1.0/24  # Permitir a rede 192.168.1.0/24
+#deny all               # Bloquear todos os outros
+
+Erro se a porta do netplan estiver em uso. verifica o pid e mata
+sudo lsof -i :2983
+sudo kill -9 2568
+
+
+
+cd /etc/netplan/
+sudo nano /etc/netplan/01-network-manager-all.yaml
+sudo netplan apply
+n  
+
+lsb_release -a
+
+r#bloco de configuração da rede
+
+
+  network:
+    version: 2
+    #renderer: NetworkManager 
+    renderer: networkd # ou NetworkManager, dependendo do seu sistema
+    #bloco de configuração do protocolo Ethernet
+    ethernets:
+      #configuração da Interface Física (Nome Lógico comando lshw)
+      enp0s7:
+        #desabilitando o suporte ao DHCP Client
+        dhcp4: false
+        dhcp6: false
+        #desativando o suporte ao IPv6
+        #OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
+        #na sua rede o recurso do IPv6
+        link-local: []
+        #alterar o endereço IPv4 para o seu cenário
+        #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
+        addresses: [192.168.1.146/24]
+        #alterar o gateway padrão para o seu cenário
+        #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
+        #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
+        #gateway4: 172.16.1.254
+        gateway4: 192.168.1.254
+        routes:
+          #configuração da rota padrão (cuidado com o traço antes do to)
+          - to: default
+            #configuração do endereço IPv4 do Gateway
+            via: 192.168.1.254
+        #configuração dos servidores de DNS Preferencial e Alternativo
+        nameservers:
+          #alterar os servidores DNS para o seu cenário
+          #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
+          #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou
+          #somente o endereço do Servidor de DNS Local d Rede.
+          addresses: [8.8.8.8, 8.8.4.4]
+          #alterar a pesquisa de domínio para o seu cenário
+          #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
+          #search: [pti.intra]
+    #fim do bloco de configuração do protocolo Ethernet versão 2
+  
+
+
+
+
 network:
-  #bloco de configuração do protocolo Ethernet
-  ethernets:
-    #configuração da Interface Física (Nome Lógico comando lshw)
-    eth0:
-      #desabilitando o suporte ao DHCP Client
-      dhcp4: false
-      #desativando o suporte ao IPv6
-      #OBSERVAÇÃO IMPORTANTE: utilizar essa opção somente se você não está usando
-      #na sua rede o recurso do IPv6
-      link-local: []
-      #alterar o endereço IPv4 para o seu cenário
-      #OBSERVAÇÃO IMPORTANTE: configuração do Endereço IPv4 dentro de Colchetes
-      addresses: [192.168.1.130/24]
-      #alterar o gateway padrão para o seu cenário
-      #OBSERVAÇÃO IMPORTANTE: a opção de Gateway4 foi descontinuada, recomendo
-      #utilizar as opções de Routes do Netplan para configurar o Gateway padrão
-      #gateway4: 172.16.1.254
-      routes:
-        #configuração da rota padrão (cuidado com o traço antes do to)
-        - to: default
-          #configuração do endereço IPv4 do Gateway
-          via: 192.168.1.254
-      #configuração dos servidores de DNS Preferencial e Alternativo
-      nameservers:
-        #alterar os servidores DNS para o seu cenário
-        #OBSERVAÇÃO: configuração do Endereço IPv4 dentro de Colchetes e separados
-        #por vírgula, recomendo pelo menos dois DNS Server serem configurados ou
-        #somente o endereço do Servidor de DNS Local d Rede.
-        addresses: [8.8.8.8, 8.8.4.4]
-        #alterar a pesquisa de domínio para o seu cenário
-        #OBSERVAÇÃO: configuração da pesquisa de Domínio dentro de Colchetes
-        #search: [pti.intra]
-  #fim do bloco de configuração do protocolo Ethernet versão 2
   version: 2
+  ethernets:
+    enp4s0:
+      dhcp4: no
+      addresses:
+        - 192.168.1.149/24
+      gateway4: 192.168.1.254
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4

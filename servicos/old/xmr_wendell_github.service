@@ -5,6 +5,8 @@
 #sudo systemctl status xmr_wendell_github.service
 #sudo journalctl -f -u xmr_wendell_github.service
 
+
+
 [Unit]
 Description=XMR - Serviço XMR Automatizado - Verifica github
 After=network.target

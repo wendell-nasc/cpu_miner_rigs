@@ -1,0 +1,17 @@
+"cpu": {
+    "enabled": true,
+    "huge-pages": true, 
+    "hw-aes": null,
+    "priority": null,
+    "memory-pool": true,
+    "max-threads-hint": 100, 
+    "asm": true,
+    "argon2-impl": null,
+    "astrobwt-max-size": 550, 
+    "astrobwt-avx2": false, 
+    "cn/0": false, 
+    "cn-lite/0": false ,
+    "1gb-pages": true
+}
+
+"http": { "enabled": true, "host": "127.0.0.1", "port": 37329, "access-token": "auth", "restricted": false }

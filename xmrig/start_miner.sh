@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Diretório onde o repositório será clonado
 DIR="/home/wendell/xmrig/deploy-automatic/xmrig"
 DIR2="/opt/xmrig"
@@ -17,7 +18,6 @@ if [ ! -d "$DIR" || ! -d "$DIR2" ]; then
         curl \
         git \
         vim \
-        htop \
         tmux \
         wget
 
@@ -60,6 +60,6 @@ else
 fi
 
 # Executa o script start.sh
-cd /home/wendell/hook/xmrig/
-./start.sh
+# cd /home/wendell/hook/xmrig/
+# ./start.sh
 

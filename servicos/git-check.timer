@@ -1,6 +1,9 @@
 #sudo cp /home/wendell/hook/servicos/git-check.timer /etc/systemd/system/git-check.timer
 #sudo systemctl daemon-reload
 #sudo systemctl enable git-check.timer
+
+#sudo systemctl stop git-check.timer
+#sudo systemctl disable git-check.timer
 #sudo systemctl start git-check.timer
 #sudo systemctl status git-check.timer
 #sudo journalctl -f -u git-check.timer
