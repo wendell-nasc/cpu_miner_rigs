@@ -18,8 +18,27 @@ SaLvdWbthy1hjCMh6SnV6z2trwaNq87gKJ3g2nuGXTiGMv6VAFzvSNzTeV6ncF5nfTMjWTeDNrKY8a5F
 
 SaLvdWbthy1hjCMh6SnV6z2trwaNq87gKJ3g2nuGXTiGMv6VAFzvSNzTeV6ncF5nfTMjWTeDNrKY8a5FnFeYResjTymWAFQpnfv
 
+# certo
+duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gumball code railway zero rafts assorted emails wobbly orchid uptight vessel unveil
+
+duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gumball code railway zero rafts assorted emails wobbly orchid uptight vessel unveil
+
+duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gumball code railway zero rafts assorted emails wobbly orchid uptight vessel unveil
 
 
+# NOKY
+SaLvsCjFLNKA6y47mEaMiCDVvfExDtXJi1BVas83P1biVT5FccZZ7zLH2PHK2dLxDwCBSxjBYMMrccb4c8kygz5QWbqvjLcyhF7
+
+
+Información de red
+Nombre: Salvium
+Corazón: SAL
+cadena de bloques: Salvium Main Chain
+Confirmaciones requeridas: 60
+Depósito mínimo: 5 SAL
+* Asegúrate de que el activo que estás enviando sea el mismo y esté por encima del Depósito Mínimo.
+* Los montos por debajo del Depósito Mínimo no serán acreditados.
+* 
 
 
 # Restore Wallet
@@ -45,9 +64,41 @@ salvium-wallet-cli.exe --restore-deterministic-wallet --electrum-seed="1 duke 2 
 salvium-wallet-cli.exe --restore-deterministic-wallet --electrum-seed="1 duke 2 puppy 3 school 4 teeming 5 unveil 6 width 7 beer 8 yoyo 9 aunt 10 absorv 11 obnoxious 12 jabbed 13 nucleus 14 gunball 15 code 16 railway 17 zero 18 rafts 19 assorted 20 emails 22 wobbly 23 uptight 24 vessel 25 unveil"
 
 
-oersted audivel udenista omoplata habitue ajuste hexagono bipolarizacao
-iogurte obnoxio ciatico xampu vociferar fumo himen bifurcar
-nado junto signos tilintar sodomizar dossie fissurar funileiro ajuste
+salvium-wallet-cli.exe --restore-deterministic-wallet --electrum-seed="duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gumball code railway zero rafts assorted emails wobbly orchid uptight vessel unveil"
+
+
+
+salvium-wallet-cli.exe --restore-deterministic-wallet --electrum-seed="duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gunball code railway zero rafts assorted emails wobbly uptight vessel unveil"
+
+
+duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gumball code railway zero rafts assorted emails wobbly orchid uptight vessel unveil
+
+
+
+./salvium-wallet-cli --restore-deterministic-wallet --electrum-seed="oersted audivel udenista omoplata habitue ajuste hexagono bipolarizacao iogurte obnoxio ciatico xampu vociferar fumo himen bifurcar nado junto signos tilintar sodomizar dossie fissurar funileiro ajuste"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+oersted audivel udenista omoplata habitue ajuste hexagono bipolarizacao iogurte obnoxio ciatico xampu vociferar fumo himen bifurcar nado junto signos tilintar sodomizar dossie fissurar funileiro ajuste
 
 
 
@@ -79,7 +130,7 @@ palavras:
 24 vessel
 25 unveil
 
-duke puppy school teeming unveil width beer yoyo aunt absorv obnoxious jabbed nucleus gunball code railway zero rafts assorted emails wobbly uptight vessel unveil 
+duke puppy school teeming unveil width beer yoyo aunt absorb obnoxious jabbed nucleus gumball code railway zero rafts assorted emails wobbly orchid uptight vessel unveil 
 
 
 

@@ -10,6 +10,14 @@ pool.woolypooly.com:3104
 /home/wendell/SRBMiner/SRBMiner-Multi-2-6-5/SRBMiner-MULTI --disable-cpu --algorithm firopow --pool pool.woolypooly.com:3104 --wallet aECoLoWK9SwpL43jQXq8DvtZJVwUheA2rJ.rig170 --gpu-boost 3
 
 
+
+rvn.2miners.com:6060
+
+
+
+
+
+
 # semente
 arrow spawn boy major hat switch aspect swear state reason author tell
 
@@ -19,3 +27,10 @@ aECoLoWK9SwpL43jQXq8DvtZJVwUheA2rJ
 
 
 /home/wendell/SRBMiner/SRBMiner-Multi-2-6-5/SRBMiner-MULTI --disable-cpu --algorithm firopow --pool pool.woolypooly.com:3104 --wallet aECoLoWK9SwpL43jQXq8DvtZJVwUheA2rJ.rig170 --gpu-boost 3
+
+
+
+/home/wendell/SRBMiner/SRBMiner-Multi-2-6-5/SRBMiner-MULTI --disable-cpu --algorithm firopow --pool pool.woolypooly.com:3104 --wallet aECoLoWK9SwpL43jQXq8DvtZJVwUheA2rJ.rig170 --gpu-boost 3
+
+
+/home/wendell/SRBMiner/SRBMiner-Multi-2-6-5/SRBMiner-MULTI --algorithm firopow --pool pool.woolypooly.com:3104 --wallet aECoLoWK9SwpL43jQXq8DvtZJVwUheA2rJ.rx580 --keepalive true  -gpu-boost 3 --no-cpu /home/wendell/SRBMiner/SRBMiner-Multi-2-6-5/SRBMiner-MULTI --algorithm firopow --pool pool.woolypooly.com:3104 --wallet aECoLoWK9SwpL43jQXq8DvtZJVwUheA2rJ.rx580 --keepalive true  -gpu-boost 3 --no-cpu 

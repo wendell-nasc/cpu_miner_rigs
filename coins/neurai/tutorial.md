@@ -61,3 +61,11 @@ WantedBy=multi-user.target
 sudo systemctl daemon-reload &&  sudo systemctl enable teamredminer.service && sudo systemctl start teamredminer.service
 
 sudo systemctl status teamredminer.service
+
+
+
+
+TUTORIAL
+
+
+/home/wendell/teamredminer-v0.10.21-linux/teamredminer -a kawpow  -o stratum+tcp://stratum-na.rplant.xyz:7029 -u NejQkZBnQcsb2UJxaCy9DXGUNL5EzSCusX.RX580 

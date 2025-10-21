@@ -1,3 +1,4 @@
+
 telestai
 
 
@@ -43,3 +44,6 @@ while [ 1 ]; do
 	./srbminer-multi --algorithm progpow_telestai --pool stratum-na.rplant.xyz:7051 --wallet TcafffD4GPcDQLmH4jXNpHmgSytQMwM9A5.rx580 --keepalive true
 	sleep 5
 done
+
+
+/home/wendell/SRBMiner/SRBMiner-Multi-2-6-5/SRBMiner-MULTI --algorithm progpow_telestai --pool stratum-na.rplant.xyz:7051 --wallet TcafffD4GPcDQLmH4jXNpHmgSytQMwM9A5.rx580 --keepalive true --no-cpu
